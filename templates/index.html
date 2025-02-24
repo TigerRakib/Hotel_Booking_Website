@@ -1,0 +1,634 @@
+{% extends 'assets/main.html'%}
+{% load static %}
+{% block maincontent %}
+  <section id="hero" class="hero section light-background">
+    <div class="container">
+      <div class="row gy-4 justify-content-center justify-content-lg-between">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Enjoy Your Trip with Radison Blu <br>And Taste Delicious Sea Food</h1>
+          <p data-aos="fade-up" data-aos-delay="100">We provide hotel rooms and delicious sea food .</p>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href='#' class="btn-get-started">Book Now</a>
+            <a href='{{video_url}}' class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+          <img src="{% static 'assets/img/pic_2.jpg'%}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- /Hero Section -->
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>About Us<br></h2>
+      <p><span>Learn More</span> <span class="description-title">About Us</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row gy-4">
+        <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+          <img src='{% static "assets/img/radison.jpg"%}' class="img-fluid mb-4" alt="">
+          <div class="book-a-table">
+            <h3>Book Now</h3>
+            <p>{{phone}}</p>
+          </div>
+        </div>
+        <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
+          <div class="content ps-0 ps-lg-5">
+            <p class="fst-italic">
+              Welcome to the Radisson Blu 
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> <span>Enjoy a stay at the stylish Radisson Blu Chittagong Bay view and choose stylish rooms with natural beauties.</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span>Enjoy plush bedding,contemporary designs,minibars,satellite TV and free Wi-Fi.</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span>Up to two children under five can stay in the same room with an adult for free .</span></li>
+            </ul>
+            <p>
+              {{content}}
+            </p>
+
+            <div class="position-relative mt-4">
+              <img src='{% static "assets/img/radison.jpg"%}' class="img-fluid" alt="">
+              <a href='{{video_url}}' class="glightbox pulsating-play-btn"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section><!-- /About Section -->
+
+  <!-- Why Us Section -->
+  <section id="why-us" class="why-us section light-background">
+
+    <div class="container">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-box">
+            <h3>Why Choose {{company_name}}</h3>
+            <p>
+              Experience an unforgettable stay at our hotel, the only certified Safe Hotel in Chattogram Bay. Appreciate breathtaking views of Chattogram, the Bay of Bengal, and the Hill Tracts, and start your day with our Super Breakfast buffet at The Xchange, one of five exceptional on-site restaurants and bars. Enjoy the city's largest pillarless event venue with sports-approved facilities and a business-class lounge, ideal for any occasion. Unwind with a swim in our circular outdoor infinity pool, sip on a refreshing beverage from the pool bar, or indulge in a therapeutic spa treatment.
+            </p>
+            <div class="text-center">
+              <a href="#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+            </div>
+          </div>
+        </div><!-- End Why Box -->
+
+        <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+            {% for y in whys %}
+              <div class="col-xl-4">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="{{y.icon}}"></i>
+                  <h4>{{y.title}}</h4>
+                  <p>{{y.description}}</p>
+                </div>
+              </div><!-- End Icon Box -->
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- /Why Us Section -->
+
+  <!-- Stats Section -->
+  <section id="stats" class="stats section dark-background">
+
+    <img src='{% static "assets/img/stats.jpg"%}' alt="" data-aos="fade-in">
+
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="row gy-4">
+        {% for member in members%}
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="{{member.number}}" data-purecounter-duration="1" class="purecounter"></span>
+              <p>{{member.category}}</p>
+            </div>
+          </div><!-- End Stats Item -->
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </section><!-- /Stats Section -->
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Our Menu</h2>
+      <p><span>Check Our</span> <span class="description-title">Food Menu</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+        <li class="nav-item">
+          <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
+            <h4>Starters</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+            <h4>Breakfast</h4>
+          </a><!-- End tab nav item -->
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
+            <h4>Lunch</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
+            <h4>Dinner</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+      </ul>
+
+      <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="tab-pane fade active show" id="menu-starters">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Starters</h3>
+          </div>
+
+          <div class="row gy-5">
+            {% for starter in starters_menu %}
+              <div class="col-lg-4 menu-item">
+                <a href="{% static starter.pic %}" class="glightbox"><img src="{% static starter.pic %}" class="menu-img img-fluid" alt=""></a>
+                <h4>{{starter.food_name}}</h4>
+                <p class="ingredients">
+                  {{starter.food_ingredients}}
+                </p>
+                <p class="price">
+                  {{starter.price}} TK
+                </p>
+              </div><!-- Menu Item -->
+            {% endfor %}
+
+          </div>
+        </div><!-- End Starter Menu Content -->
+
+        <div class="tab-pane fade" id="menu-breakfast">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Breakfast</h3>
+          </div>
+
+          <div class="row gy-5">
+            {% for breakfast in breakfasts%}
+              <div class="col-lg-4 menu-item">
+                <a href="{% static breakfast.pic %}" class="glightbox"><img src="{% static breakfast.pic %}" class="menu-img img-fluid" alt=""></a>
+                <h4>{{breakfast.food_name}}</h4>
+                <p class="ingredients">
+                  {{breakfast.food_ingredients}}
+                </p>
+                <p class="price">
+                  {{breakfast.price}} TK
+                </p>
+              </div><!-- Menu Item -->
+            {%endfor%}
+
+            
+
+          </div>
+        </div><!-- End Breakfast Menu Content -->
+
+        <div class="tab-pane fade" id="menu-lunch">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Lunch</h3>
+          </div>
+
+          <div class="row gy-5">
+            {% for lunch in lunchs %}
+              <div class="col-lg-4 menu-item">
+                <a href="{% static lunch.pic %}" class="glightbox"><img src="{% static lunch.pic %}" class="menu-img img-fluid" alt=""></a>
+                <h4>{{lunch.food_name}}</h4>
+                <p class="ingredients">
+                  {{lunch.food_ingredients}}
+                </p>
+                <p class="price">
+                  {{lunch.price}} Tk 
+                </p>
+              </div><!-- Menu Item -->
+            {%endfor %}
+
+          </div>
+        </div><!-- End Lunch Menu Content -->
+
+        <div class="tab-pane fade" id="menu-dinner">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>Dinner</h3>
+          </div>
+
+          <div class="row gy-5">
+            {%for dinner in dinners%}
+              <div class="col-lg-4 menu-item">
+                <a href="{% static dinner.pic %}" class="glightbox"><img src="{% static dinner.pic %}" class="menu-img img-fluid" alt=""></a>
+                <h4>{{dinner.food_name}}</h4>
+                <p class="ingredients">
+                  {{dinner.food_ingredients}}
+                </p>
+                <p class="price">
+                  {{dinner.price}} Tk
+                </p>
+              </div><!-- Menu Item -->
+            {%endfor%}
+
+          </div>
+        </div><!-- End Dinner Menu Content -->
+
+      </div>
+
+    </div>
+
+  </section><!-- /Menu Section -->
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>TESTIMONIALS</h2>
+      <p>What Are They <span class="description-title">Saying About Us</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            }
+          }
+        </script>
+        <div class="swiper-wrapper">
+          {% for testimonial in testimonials %}
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="row gy-4 justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="testimonial-content">
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span>{{testimonial.description}}</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                      <h3>{{testimonial.name}}</h3>
+                      <h4>{{testimonial.designation}}</h4>
+                      <div class="stars">
+                        {% for i in 'x'|ljust:testimonial.rating %}
+                        <i class="bi bi-star-fill"></i>
+                      {%endfor %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <img src='{% static testimonial.picture %}' class="img-fluid testimonial-img" alt="">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+          {% endfor %}
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+
+  </section><!-- /Testimonials Section -->
+
+  <!-- Events Section -->
+  <section id="events" class="events section">
+
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            },
+            "breakpoints": {
+              "320": {
+                "slidesPerView": 1,
+                "spaceBetween": 40
+              },
+              "1200": {
+                "slidesPerView": 3,
+                "spaceBetween": 1
+              }
+            }
+          }
+        </script>
+        <div class="swiper-wrapper">
+          {% for event in events %}
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({% static event.picture %})">
+              <h3>{{event.event}}</h3>
+              <div class="price align-self-start">${{event.price}}</div>
+              <p class="description">
+                {{event.description}}
+              </p>
+            </div><!-- End Event item -->
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+
+  </section><!-- /Events Section -->
+
+  <!-- Chefs Section -->
+  <section id="chefs" class="chefs section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Proffesionals</h2>
+      <p><span>Our</span> <span class="description-title">Proffesionals<br></span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row gy-4">
+        {% for prof in profs %}
+          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{% static prof.picture %}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{prof.name}}</h4>
+                <span>{{prof.designation}}</span>
+                <p>{{prof.description}}</p>
+              </div>
+            </div>
+          </div><!-- End Chef Team Member -->
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </section><!-- /Chefs Section -->
+
+  <!-- Book A Table Section -->
+  <section id="book-a-table" class="book-a-table section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Book A Room</h2>
+      <p><span>Book Your</span> <span class="description-title"> Room & Stay With Us<br></span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+      <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="col-lg-4 reservation-img" style="background-image: url({% static 'assets/img/superior.webp'%});"></div>
+        <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
+          <form action={% url 'booking' %} method="post" role="form" class="php-email-form">
+            {% csrf_token %}
+            <div class="row gy-4">
+              <div class="col-lg-4 col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <input type="time" class="form-control" name="time" id="time" placeholder="Time" required="">
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <input type="number" class="form-control" name="people" id="people" placeholder="# of people" required="">
+              </div>
+            </div>
+
+            <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+            </div>
+
+            <div class="text-center mt-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+              <button type="submit">Book your room</button>
+            </div>
+          </form>
+        </div><!-- End Reservation Form -->
+
+      </div>
+
+    </div>
+
+  </section><!-- /Book A Table Section -->
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Gallery</h2>
+      <p><span>Check</span> <span class="description-title">Our Gallery</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "centeredSlides": true,
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            },
+            "breakpoints": {
+              "320": {
+                "slidesPerView": 1,
+                "spaceBetween": 0
+              },
+              "768": {
+                "slidesPerView": 3,
+                "spaceBetween": 20
+              },
+              "1200": {
+                "slidesPerView": 5,
+                "spaceBetween": 20
+              }
+            }
+          }
+        </script>
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href='{% static "assets/img/gallery/gallery1.jpg"%}'><img src='{% static "assets/img/gallery/gallery1.jpg"%}' class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href='{% static "assets/img/gallery/gallery2.jpg"%}'><img src='{% static "assets/img/gallery/gallery2.jpg"%}' class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href='{% static "assets/img/gallery/gallery3.jpg"%}'><img src='{% static "assets/img/gallery/gallery3.jpg"%}' class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href='{% static "assets/img/gallery/gallery4.jpg"%}'><img src='{% static "assets/img/gallery/gallery4.jpg"%}' class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href='{% static "assets/img/gallery/gallery5.jpg"%}'><img src='{% static "assets/img/gallery/gallery5.jpg"%}' class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href='{% static "assets/img/gallery/gallery6.jpg"%}'><img src='{% static "assets/img/gallery/gallery6.jpg"%}' class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href='{% static "assets/img/gallery/gallery7.jpg"%}'><img src='{% static "assets/img/gallery/gallery7.jpg"%}' class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href='{% static "assets/img/gallery/gallery8.jpg"%}'><img src='{% static "assets/img/gallery/gallery8.jpg"%}' class="img-fluid" alt=""></a></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+
+  </section><!-- /Gallery Section -->
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p><span>Need Help?</span> <span class="description-title">Contact Us</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="mb-5">
+        <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.161507404708!2d91.82040597500983!3d22.347529741182377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8a2a645ee07%3A0x2a94a4fa61c7b1a3!2sRadisson%20Blu%20Hotel%2C%20Chattogram%20Bay%20View!5e0!3m2!1sen!2sbd!4v1740351220466!5m2!1sen!2sbd" frameborder="0" allowfullscreen=""></iframe>
+      </div><!-- End Google Maps -->
+
+      <div class="row gy-4">
+
+        <div class="col-md-6">
+          <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+            <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+            <div>
+              <h3>Address</h3>
+              <p>{{location}}</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="col-md-6">
+          <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+            <i class="icon bi bi-telephone flex-shrink-0"></i>
+            <div>
+              <h3>Call Us</h3>
+              <p>+88{{phone}}</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="col-md-6">
+          <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+            <i class="icon bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>Email Us</h3>
+              <p>{{email}}</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="col-md-6">
+          <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+            <i class="icon bi bi-clock flex-shrink-0"></i>
+            <div>
+              <h3>Opening Hours<br></h3>
+              <p><strong>Mon-Sat:</strong> 11AM - 23PM; <strong>Sunday:</strong> Closed</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+      </div>
+      <form action={% url 'contact' %} method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+        {% csrf_token %}
+        <div class="row gy-4">
+          <div class="col-md-6">
+            <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+          </div>
+
+          <div class="col-md-6 ">
+            <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+          </div>
+
+          <div class="col-md-12">
+            <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+          </div>
+
+          <div class="col-md-12">
+            <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+          </div>
+
+          <div class="col-md-12 text-center">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+
+            <button type="submit">Send Message</button>
+          </div>
+
+        </div>
+      </form><!-- End Contact Form -->
+
+    </div>
+
+  </section><!-- /Contact Section -->
+
+{% endblock maincontent %}
