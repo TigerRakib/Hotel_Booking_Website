@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# Ensure Python is installed
-export PATH=$HOME/.local/bin:$PATH
+# Create and activate a virtual environment in Vercel's environment
+ # On Windows, use venv\Scripts\activate
 
-# Install dependencies
-python3 -m ensurepip --default-pip
+# Upgrade pip inside the virtual environment
 pip install --upgrade pip
+
+# Install dependencies inside the virtual environment
 pip install -r requirements.txt
 
 # Collect static files
-python3 manage.py collectstatic --noinput
+python manage.py collectstatic --noinput
+
