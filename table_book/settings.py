@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2tvd(lpar0f72(um2@&h^*0+rbwesxnkf2u7+3w40(wahu(y8i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -78,13 +78,8 @@ WSGI_APPLICATION = 'table_book.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'NKNZoReHyUKNxogbklIlGYrWbhiKodmU',
-        'HOST':'shortline.proxy.rlwy.net',
-        'PORT':'55421',
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(os.path.dirname(__file__), 'db.sqlite3'),
     }
 }
 
