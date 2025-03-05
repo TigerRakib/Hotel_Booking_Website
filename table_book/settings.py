@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,3 +137,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER ='nazrulislamrakib1813030@gmail.com'
 EMAIL_HOST_PASSWORD = "qcrfxkodzfnnymqh"#password associated with above email-id (not the regular password)
+STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
